@@ -14,13 +14,13 @@
         border-radius: 10px;
     }
 </style>
-<div class="mx-auto bg-dark p-2 col-6" id="formHolder">
-    <p class="h4 mb-4 text-center light-text">Send us a message</p>
-    <form class="text-center" method="post">
+<div class="mx-auto bg-dark p-2 col-10 col-sm-10 col-md-6" id="formHolder">
+    <p class="h4 mb-4 text-center light-text">Send us a message<br>and we'll get back to you shortly</p>
+    <form class="" method="post">
         {% csrf_token %}
         {{ form|crispy }}
         <br>
-        <button class="btn" type="submit">Send</button>
+        <button class="btn mx-auto" type="submit">Send</button>
     </form>
 </div> 
 
