@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<style>
+    form label{
+        color: #E0DDCF;
+    }
+    form textarea{
+        height:50px;
+    }
+    #formHolder{
+        border-style: solid;
+        border-color: #F44336;
+        border-radius: 10px;
+    }
+</style>
+<div class="mx-auto bg-dark p-2 col-6" id="formHolder">
+    <p class="h4 mb-4 text-center light-text">Send us a message</p>
+    <form class="text-center" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br>
+        <button class="btn" type="submit">Send</button>
+    </form>
+</div> 
+
+{% endblock %}

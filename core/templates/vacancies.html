@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load ratings %}
+{% block body %}
+<div class="bg-dark p-2 border border-danger">     
+    <h3>Vacancies</h3> 
+    <p class="text-white">
+        Welcome to the vacancies section, here you can view posts from other users 
+        of the vacancies they are currently looking to rent out. There is also to the option 
+        below to post about the your own vacancy and its details. 
+    </p>  
+    <hr style="height:1px; background-color:grey">
+    <a class="btn btn-outline-danger" href="{% url 'core:Vacancy_post' %}">Add vacancy</a>
+
+    <hr style="height:1px; background-color:grey">
+    <!--Only visible to students-->
+    {%  for i in request.user.userprofile.all %}       
+        {% if forloop.last %}
+            {% if i.isStudent %}
+                <div class="form-group">
+                    <form action="{% url 'core:search_results' %}" class="input-group">
+                        <input name="q" class="form-control mr-sm-2" type="text" placeholder="Description/area/plot" aria-label="Search">
+                        <input name="max_price" class="form-control mr-sm-2" type="number" placeholder="Max price" aria-label="Search">
+                        <button class="btn btn-outline-danger" type="submit">Search</button>
+                    </form>
+                </div>   
+            {% endif %}     
+        {% endif %}
+    {% endfor %}
+</div>
+
+ <style>
+    .avatar {
+      vertical-align: middle;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    </style>
+
+    {% if vacancies %}
+        <div class="container">
+            {% for p in vacancies %}       
+            {% if forloop.first %}<div class="row">{% endif %} 
+            <div class="col-sm card text-white bg-dark mb-3 my-1 border border-danger">
+                <div class="card-header bg-danger">Vacancy offered by<br><a href="{% url 'accounts:profile' p.postby.id %}" class="btn bg-dark text-white">{{p.postby}}</a></div>
+                {% if p.postImage %}
+                <img class="card-img-top" src="{{p.postImage.url}}" alt="Card image cap">
+                {% endif %}
+                <div class="card-body">
+                    <p class="card-text">decription : {{ p.postText }}</p>
+                    <p class="card-text">area : {{ p.area }}</p>
+                    <p class="card-text">plot number : {{ p.plot }}</p>
+                    <p class="card-text">price : {{ p.price }}</p>
+                </div>
+                <div class="card-footer">
+                {% ratings p %}
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:2 %}</div><div class="row">{% endif %}
+            {% if forloop.last %}</div>{% endif %}      
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="card bg-dark text-white m-1">
+            <div class="card-header bg-danger">Error</div>
+            <div class="card-body">
+            <p class="card-title">No vacancies</p>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

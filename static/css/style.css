@@ -1,0 +1,31 @@
+/* Color Palette
+    #F44336-red
+    #CA1104-darker red
+    #E0DDCF-light  
+*/
+
+body{
+    background-color: black;
+}
+
+hr{
+    color: #f44336; 
+    background-color:#f44336
+}
+
+/* Text Styling */
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f44336;      
+}
+
+.light-text{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #E0DDCF; 
+}
+
+.dark-text{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #292b2c; 
+}
+

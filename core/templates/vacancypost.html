@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="bg-dark p-2 border border-danger">
+        <p class="h4 mb-4 text-center text-danger">Add your vacancy</p>
+            <form method="POST" enctype="multipart/form-data" class="Vacancy-Form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <!--<small>more images(optional)</small>
+                {{ imageform|crispy }}-->
+                <button type="submit" class="btn btn-outline-danger btn-block">Save</button>
+            </form>
+    </div>
+{% endblock %}

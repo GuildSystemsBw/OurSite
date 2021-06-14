@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="bg-dark p-2 border border-danger">     
+        <h3>Find A Roommate</h3>   
+        <p class="text-white">
+            Welcome to the roommates section, here you can look at posts made by other users 
+            looking for a roommate to share their accommodation with. There is also to the option 
+            for you to post about the your vacancy and details of a prefered roomate. 
+        </p>
+        <hr style="height:1px; background-color:grey">
+        <a class="btn btn-outline-danger" href="{% url 'core:roomatepost' %}">Advertise For Roommate</a>
+        <hr style="height:1px; background-color:grey">
+        <div class="form-group">
+            <form method="GET" class="input-group" action="{% url 'core:search_roommate' %}">
+                <input type="text" class="form-control rounded" name="search" placeholder="Description/area/plot" aria-label="Search"
+                       aria-describedby="search-addon" />
+    
+                <select class="form-select" name="gender">
+    
+                    <option selected value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="U">Unsure</option>
+                </select>
+                <button type="submit" class="btn btn-outline-danger">Search</button>
+            </form>
+        </div>
+    </div>
+
+    {% if findroomate %}
+            {% for p in findroomate %}
+                <div class="card text-white bg-dark mb-3 my-1 border border-danger">
+                    <div class="card-header bg-danger">
+                        <a href="{% url 'accounts:profile' p.postby.id%}">{{ p.postby }}</a> is looking for a roomate
+                    </div>
+                    {% if p.postImage %}
+                        <img class="card-img-top" src="{{p.postImage.url}}" alt="Card image cap">
+                    {% else %}
+                        <p class="card-text text-danger" >No image attached</p>
+                    {% endif %}
+                    <div class="card-body">
+                    <p class="card-text">decription : {{ p.postText }}</p>
+                    <p class="card-text">area : {{ p.area }}</p>
+                    <p class="card-text">plot number : {{ p.plot }}</p>
+                    <p class="card-text">price : {{ p.price }}</p>
+                        <p class="card-text">gender of roomate : {{ p.gender }}</p>
+                        <p class="card-text">age of roomate : {{ p.age }}</p>
+                        <p class="card-text">price : {{ p.contactnum }}</p>
+                    </div>
+
+                </div>
+                <br>
+                <br>
+            {% endfor %}
+    {% else %}
+        <div class="card bg-dark text-white m-1 border border-danger">
+            <div class="card-header bg-transparent">Error</div>
+            <div class="card-body">
+            <h5 class="card-title">No posts yet</h5>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

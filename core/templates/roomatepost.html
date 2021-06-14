@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="bg-dark p-2 border border-danger">
+        <p class="h4 mb-4 text-center text-danger">Roommate Description</p>
+            <form method="POST" enctype="multipart/form-data" class="roomate-Form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-outline-danger btn-block">Save</button>
+            </form>
+    </div>
+{% endblock %}
