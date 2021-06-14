@@ -4,23 +4,17 @@ from django.views.generic import ListView,TemplateView
 from .forms import ContactForm
 from django.core.mail import send_mail,BadHeaderError
 
+'''
+Displaying the landing page.
+'''
 class HomePage(TemplateView):
     template_name = "templates/landingpage.html"
 
+'''
+Depending on the request method either the form is displayed or it is being submitted.
++The email is sent to the company email address.
+'''
 def contact(request):
-    if request.method == "POST":
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            fromEmail = form.cleaned_data['email']
-            subject = form.cleaned_data['subject']
-            content = form.cleaned_data['content']
-            send_mail(subject, content, fromEmail, ['guildsystemsbw@gmail.com'])
-            return redirect('')
-    else:
-        form = ContactForm()
-    return render(request, 'contact.html', {'form': form})
-
-def contact1(request):
     if request.method == 'GET':
         form = ContactForm()
     else:
