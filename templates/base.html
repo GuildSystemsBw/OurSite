@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
     <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <title>Guild Systems</title>
   </head>
 
@@ -19,8 +20,10 @@
     
     /* Styling the div of id 'nav' */
     #nav {
-        background-color: #f44336;
+        background-image: url("{% static 'pexels-nohk-1735658.jpg' %}");
+        background-size: cover;
         border-radius: 25px;
+        border-color: #F44336;
         text-align:center;
         margin: auto;
         width: 300px;
@@ -28,7 +31,7 @@
     
     /* When a button is hovered, both it and the svg within it change colors*/
     .btn{
-      background-color: #f44336;
+      background-color: transparent;
       color: #E0DDCF;
     }
     .btn svg{
@@ -37,16 +40,32 @@
     .btn:hover{
       background-color: black;
     }   
+    .contact-parlex {
+     padding-top: 0px;
+     background-image: url("{% static 'pexels-adrien-olichon-2387793.jpg' %}");
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+}
+ .img {
+     padding-top: 0px;
+     background-image: url("{% static 'pexels-nohk-1735658.jpg' %}");
+     background-size: cover;
+     background-repeat: no-repeat;
+     
+}
+
   </style>
 
-  <body class="bg-dark">
-    <div class="my-4 bg-dark">
-      <div id="nav">
-        <a href="/" class="btn">
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
-            <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-          </svg>
+  <body class="contact-parlex">
+    
+      <div class="my-4">
+        <div id="nav">
+          <a href="/" class="btn">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
+              <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+            </svg>
         </a>
     
         <!-- <a class="btn">
@@ -67,8 +86,8 @@
           </svg>
         </a>
       </div>
-    </div>
-
+    
+      <br>
     <main role="main" class="cont m-0 p-0">
         <div class="row justify-content-center">
           <div class="col-12">
@@ -78,8 +97,9 @@
             {% endblock %}
           </div>
         </div>
-    </main>
 
+    </main>
+  </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -91,6 +111,7 @@
           e.preventDefault();
           });
     </script>
+
   </body>
 </html>
 
