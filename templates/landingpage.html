@@ -1,48 +1,154 @@
 {% extends 'base.html' %}
-{% load static %}
-{% block body %}
+ {% load static %}
+  {% block body %}
     <style>
-      #imgHolder{
-          height: 400px;        
-          overflow: hidden;
-          position: relative;          
+          .imgLeft
+       {
+        float: left;
+        width: 240px;
+        height: 150px;
+        margin: 0px 10px 10px 0;
+        padding: 10px;
       }
+
+        .imgRight
+        {
+            float: right;
+            width: 280px;
+            height: 190px;
+            margin: 0px 0 10px 10px;
+            padding: 10px;
+        }
+      #imgHolder{
+          height: 400px;
+          width: 1260px; 
+          left: 40px;       
+          overflow: hidden;
+          position: center;
+          padding-left: 10px;
+          padding-right: 10px;
+          border-color: darkred;
+          border-style: solid;
+          border-radius: 1em;
+
+      }
+       #last{
+          height: 530px;        
+          overflow: hidden;
+          position: relative; 
+          background-color: white;         
+      }
+       #end{
+          height: 100px;        
+          overflow: hidden;
+          position: relative; 
+          background-color: black;  
+      }
+      .LapImg{
+          position: absolute;
+          top: 5%;
+          left: 550px;
+          height: 300px;
+          width: 370px;
+        }
+      .LapImg_2{
+          position: absolute;
+          top: 25%;
+          left: 900px;
+          height: 220px;
+          width: 350px;
+        }
+
+        .page-section {
+         width: 100%;
+         height: auto;
+         padding: 35px 0;
+        }
+
       #divOverlay{
           position: absolute;
           top: 10%;
-          left: 50px;
+          left: 35px;
           color: white;
           padding-left: 10px;
           padding-right: 10px;
           border-color: #292b2c;
           border-style: solid;
           border-radius: 1em;
+          background-image: url("{% static 'pexels-adrien-olichon-2387793.jpg' %}");
+          background-size: cover;
       }
       #divOverlay h1{
         font-size: 8vw;
+        font-family: 'Aclonica';
+        font-weight: bold;
       }
       #divOverlay p{
         font-size: 4vw;
+        font-family: 'Aclonica';
+        font-weight: bold;
+      }
+      .animated {
+      /* -webkit-animation-duration: 1s; */
+      animation-duration: 1s;
+      -webkit-animation-delay: 0s;
+      animation-delay: 0s;
+      }
+      .hero-text p {
+      font: 16px/30px 'opensans-regular', sans-serif;
+      padding: 0;
+      margin: 12px 8% 0;
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
       }
       .lefty{
         transform: translate(-350px,0);
       }
     </style>
+    
     <!--Welcome-->
-    <div id="imgHolder" class="col-12">
-      <img src="{% static 'bar1.png' %}" alt="" class="lefty">    
+    <section id="Guild">
+      
+        <div id="imgHolder" class="col-12">
+      <img src="{% static 'pexels-nohk-1735658.jpg' %}" alt="" class="lefty">    
       <div class="p-3 mb-2" id="divOverlay">
         <h1 class="light-text"><u>Welcome!</u></h1>
         <p class="light-text">to Guild Systems</p>
       </div>
+      <img src="{% static 'macbook.png' %}" alt="" class="LapImg animated fadeInUpBig">  
+      <img src="{% static 'homepage-1204-background-lapto.png' %}" alt="" class="LapImg_2 animated fadeInDownBig">
     </div>
+
+      
+     </section>
+
+
 
     <!--Motto-->
     <div class="text-center light-text">
       <div class="col-md-5 p-lg-5 mx-auto my-5">
-        <p style="font-size: 22px;">We strive to give you the best with attention to detail and ever changing to please your needs</p>
+        <p style="font-size: 22px; font-family: 'Aclonica'; ">We strive to give you the best with attention to detail and ever changing to please your needs</p>
       </div>
     </div>
+
+     <div id="last" class="col-12"><br>
+        <img src="{% static 'feature-img-1.png' %}" class="imgLeft animated fadeInLeftBig" />
+<h3 style="font-family: 'Aclonica';" >Cloud expense management</h3>
+<p>
+   Gain control of your cloud costs by fully comprehending cloud spend and by allocating the correct spend to departments and company initiatives. With brightfin, you can eliminate the manual work of pouring over cloud bills, processing invoices, and allocating costs with automated processes.
+</p><br>
+
+<br><img src="{% static 'istockphoto hands on keyboard.jpg' %}" class="imgRight animated fadeInRightBig"/>
+<h3 style="font-family: 'Aclonica';" >Mobile expense management</h3>
+<p>
+   Deploying larger and more complex mobile environments to support remote operations, requiring larger MDM strategies to keep pace. From IT to finance to your end users, the mobility challenge only continues to grow. Without the right solutions, managing mobile endpoints is an unnecessary headache
+</p><br>
+
+<br><img src="{% static 'istockphoto-498491246-612x612.jpg' %}" class="imgLeft animated fadeInLeftBig" />
+<h3 style="font-family: 'Aclonica';" >WEB SERVICES</h3>
+<p>
+ Features to hold the audience, provide them with the relevent content that could control the user scrolling without letting them feel that they are looking at just a beautiful website, and tell the genuinity of services or business at the same time, it’s not a complete website for Codified. Have a look at complete Web Services we provide and decide what you need from us. Or else, Let us decide!
+</p>
+     </div><br><br>
 
     <!--What we offer-->
     <div class="container text-center light-text">
@@ -52,7 +158,7 @@
             <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
           </svg>
           <hr style="width: 80%;">
-          <u style="font-size: 22px;"><b>Mobile solutions</b></u> 
+          <u style="font-size: 22px; font-family: 'Aclonica';"><b>Mobile solutions</b></u> 
           <p class="light-text">Interactive mobile apps delivering your product to users on the go</p>       
         </div>
 
@@ -61,7 +167,7 @@
             <path d="M2.5 2A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z"/>
           </svg>
           <hr style="width: 80%;">
-          <u style="font-size: 22px;"><b>Web solutions</b></u> 
+          <u style="font-size: 22px; font-family: 'Aclonica';"><b>Web solutions</b></u> 
           <p class="light-text">Reach to the far ends of the world with a responsive website</p>
         </div>
 
@@ -70,50 +176,13 @@
             <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
           </svg>
           <hr style="width: 80%;">
-          <u style="font-size: 22px;"><b>Maintenance and Updates</b></u> 
+          <u style="font-size: 22px; font-family: 'Aclonica';"><b>Maintenance and Updates</b></u> 
           <p class="light-text">For a product we have created with you, we offer maintenance and updates to keep your product fresh and robust</p>
         </div>
       </div>
     </div>
-
-    
-
-    <!-- 
-    <div id="imgHolder" class="col-12">
-      <img src="{% static 'bar1.png' %}" alt="" class="lefty">    
-      <div class="p-3 mb-2 bg-dark" id="divOverlay">
-        <h3 class="text"><u>Guild Systems?</u></h3>
-        <p class="text">
-          We are a 
-        </p>
-      </div>
-    </div>
-
-    <br>
-
-    
-    <div id="imgHolder" class="col-12">
-      <img src="{% static 'bar1.png' %}" alt="" id="rotate">    
-      <div class="p-3 mb-2 bg-dark" id="divOverlay1">
-        <h3 class="text"><u>M&A</u></h3>
-        <p class="text">
-          Mission &
-          Vision
-        </p>
-      </div>
-    </div>
-
-    <br>
+     
+       
   
-    
-    <div id="imgHolder" class="col-12">
-      <img src="{% static 'bar1.png' %}" alt="" class="lefty">    
-      <div class="p-3 mb-2 bg-dark" id="divOverlay">
-        <h3 class="text"><u>Founders</u></h3>
-        <p class="text">
-          Frank Khoza &
-          Uliyan Masuku
-        </p>
-      </div>
-    </div> -->
-{% endblock %}
+
+ {% endblock %}
